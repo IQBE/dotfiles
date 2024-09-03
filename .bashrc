@@ -5,7 +5,7 @@
 alias l='ls -CF'
 alias la='ls -AlCF'
 alias ll='ls -al'
-alias lsd='ls -alF | grep /$'
+alias lsd='ls -alF | grep'
 alias cls='clear'
 alias bashrc='nvim $HOME/.bashrc'
 
