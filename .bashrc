@@ -8,6 +8,8 @@ alias ll='ls -al'
 alias lsd='ls -alF | grep'
 alias cls='clear'
 alias bashrc='nvim $HOME/.bashrc'
+alias vi='nvim'
+alias vim='nvim'
 
 # Overrides
 alias free='free -h'
