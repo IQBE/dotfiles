@@ -14,7 +14,7 @@ alias mkdire='function _mkdire() { mkdir -p "$1" && cd "$1"; }; _mkdire'
 
 # Overrides
 alias free='free -h'
-alias rm='rm -iv'
+alias rm='rm -Iv'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias vi='nvim'
