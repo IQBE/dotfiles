@@ -10,12 +10,13 @@ alias cls='clear'
 alias bashrc='nvim $HOME/.bashrc'
 alias vi='nvim'
 alias vim='nvim'
+alias cd-='cd -'
 
 # Overrides
 alias free='free -h'
-alias rm='rm -Iv'
-alias cp='cp -Iv'
-alias mv='mv -Iv'
+alias rm='rm -iv'
+alias cp='cp -iv'
+alias mv='mv -iv'
 
 # Completion improvements
 bind 'set completion-ignore-case on'
