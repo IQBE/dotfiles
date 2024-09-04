@@ -8,15 +8,17 @@ alias ll='ls -al'
 alias lsd='ls -alF | grep'
 alias cls='clear'
 alias bashrc='nvim $HOME/.bashrc'
-alias vi='nvim'
-alias vim='nvim'
+alias rldbash='source $HOME/.bashrc'
 alias cd-='cd -'
+alias mkdire='function _mkdire() { mkdir -p "$1" && cd "$1"; }; _mkdire'
 
 # Overrides
 alias free='free -h'
 alias rm='rm -iv'
 alias cp='cp -iv'
 alias mv='mv -iv'
+alias vi='nvim'
+alias vim='nvim'
 
 # Completion improvements
 bind 'set completion-ignore-case on'
