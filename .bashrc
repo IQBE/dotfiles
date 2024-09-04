@@ -19,6 +19,7 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias vi='nvim'
 alias vim='nvim'
+alias ls='ls --color=auto'
 
 # Completion improvements
 bind 'set completion-ignore-case on'
