@@ -21,6 +21,10 @@ alias vi='nvim'
 alias vim='nvim'
 alias ls='ls --color=auto'
 
+function cd {
+	builtin cd "$@" && ls -F
+}
+
 # Completion improvements
 bind 'set completion-ignore-case on'
 
