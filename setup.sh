@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set config files in place
-cp .config $HOME/.config
+cp -r .config/ $HOME/
 
 # Installing Catppuccin theme for Alacritty
 curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
