@@ -19,3 +19,11 @@ size = 15.0
 [font.normal]
 family = "FiraCode Nerd Font Mono"
 style = "retina"
+
+[font.bold]
+family = "FiraCode Nerd Font Mono"
+style = "bold"
+
+[font.italic]
+family = "FiraMono"
+style = "medium italic"
