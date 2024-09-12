@@ -2,6 +2,7 @@
 
 # Set config files in place
 cp -r .config/ $HOME/
+cp -r .fonts/ $HOME/
 
 # Install vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
