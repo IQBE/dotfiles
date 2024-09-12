@@ -13,6 +13,9 @@ save_to_clipboard = true
 [scrolling]
 history = 2000
 
+[font]
+size = 15.0
+
 [font.normal]
 family = "FiraCode Nerd Font Mono"
 style = "retina"
