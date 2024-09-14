@@ -4,6 +4,7 @@
 echo Copy all files and configurations to it\'s correct location...
 cp -r .config/ $HOME/
 cp -r .fonts/ $HOME/
+cp -r .local/ $HOME/
 cp .bashrc $HOME/.bashrc
 
 # Install vim-plug and the plugins
