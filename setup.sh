@@ -4,14 +4,14 @@
 echo Copy all files and configurations to it\'s correct location...
 cp -r .config/ $HOME/
 cp -r .fonts/ $HOME/
-cp -r .local/ $HOME/
+cp -r .local/bin/ $HOME/.local/bin/
 cp .bashrc $HOME/.bashrc
 
 # Install vim-plug and the plugins
 echo Install neovim plugins...
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-nvim --headless +PlugInstall +qall > /dev/null
+nvim --headless +PlugInstall +qall > /dev/null 2> /dev/null
 
 # Installing Catppuccin theme for Alacritty
 Installing alacritty theme...
