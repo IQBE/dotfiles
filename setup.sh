@@ -11,7 +11,7 @@ cp .bashrc $HOME/.bashrc
 Installing alacritty theme...
 curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
 
-# Prompt to install software
+# Prompt to install software via package manager
 echo Installation done! Please select your desired package manager to complete the installation:
 echo "1) apt (Debian/Ubuntu)"
 echo "2) dnf (Fedora)"
@@ -46,6 +46,10 @@ case $CHOICE in
     echo "Invalid choice. Please select a valid package manager option."
     ;;
 esac
+
+# Install latest npm version and yarn globally
+sudo npm i -g npm@latest 2>>log.txt
+sudo npm i -g yarn 2>>log.txt 
 
 if [ -s log.txt ]; then
   echo Warning! Some packages were not installed. Please check log.txt for a detailed overview.
