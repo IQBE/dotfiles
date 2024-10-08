@@ -13,3 +13,13 @@ vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = "Jump to Bookmarks" })
 
 -- For sessions, using the 'persistence.nvim' plugin (or any session management)
 vim.keymap.set('n', '<leader>sl', "<cmd>source ~/.config/nvim/session.vim<CR>", { desc = "Open Last Session" })
+
+-- Move (selected) line(s) up/down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("n", "J", ":m .+1<CR>==")
+vim.keymap.set("n", "K", ":m .-2<CR>==")
+
+-- Indenting using > and < in visual mode
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
