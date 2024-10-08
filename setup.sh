@@ -55,5 +55,4 @@ if [ -s log.txt ]; then
   echo Warning! Some packages were not installed. Please check log.txt for a detailed overview.
 else
   echo Done! Everything installed successfully.
-  echo $(date): Everything installed correctly. > log.txt
 fi
