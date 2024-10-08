@@ -12,7 +12,7 @@ Installing alacritty theme...
 curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
 
 # Prompt to install software via package manager
-echo Installation done! Please select your desired package manager to complete the installation:
+echo Configuration files in place. Please select your desired package manager to complete the installation:
 echo "1) apt (Debian/Ubuntu)"
 echo "2) dnf (Fedora)"
 echo "3) yum (RHEL)"
@@ -20,6 +20,11 @@ echo "4) zypper (OpenSU)"
 echo "5) pacman (Arch)"
 echo "6) I will install the software myself (check install_packages.txt)"
 read -p "> " CHOICE
+
+while [[ ! $CHOICE =~ ^[1-6]$ ]]; do
+    echo "Please enter a number between 1 and 6!"
+    read -p "> " CHOICE
+done
 
 case $CHOICE in
   1)
