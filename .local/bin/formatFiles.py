@@ -19,12 +19,13 @@
 #   - After: 'myFileName.txt'                                           #
 #                                                                       #
 #   Usage:                                                              #
-#   - python3 test.py <directory>                                       #
+#   - formatFiles.py <directory                                         #
 #   - If no directory is provided, the current directory is used        #
 #                                                                       #
 #   Planned features:                                                   #
 #   - Add the ability to format files in subdirectories recursively     #
 #   - Add the ability to format individual files                        #
+#   - Add the ability to format directory names                         #
 #                                                                       #
 #   Author: IQBE                                                        #
 #                                                                       #
