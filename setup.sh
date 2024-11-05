@@ -8,7 +8,7 @@ cp -r .local/bin/ $HOME/.local/bin/
 cp .bashrc $HOME/.bashrc
 
 # Installing Catppuccin theme for Alacritty
-Installing alacritty theme...
+echo Installing alacritty theme...
 curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
 
 # Prompt to install software via package manager
@@ -50,6 +50,7 @@ case $CHOICE in
 esac
 
 # Install latest npm version and yarn globally
+echo Installing yarn...
 sudo npm i -g npm@latest 2>>log.txt
 sudo npm i -g yarn 2>>log.txt 
 
