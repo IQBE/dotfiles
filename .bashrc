@@ -11,6 +11,7 @@ alias bashrc='nvim $HOME/.bashrc'
 alias rldbash='source $HOME/.bashrc'
 alias cd-='cd -'
 alias mkdire='function _mkdire() { mkdir -p "$1" && cd "$1"; }; _mkdire'
+alias svim='sudoedit'
 
 # Overrides
 alias free='free -h'
@@ -20,6 +21,7 @@ alias mv='mv -iv'
 alias vi='nvim'
 alias vim='nvim'
 alias ls='ls --color=auto'
+alias sudoedit='function _sudoedit() { sudo -e "$1"; }; _sudoedit'
 
 function cd {
 	builtin cd "$@" && ls -F
@@ -41,6 +43,7 @@ shopt -s checkwinsize
 
 # Set default editor
 export EDITOR=nvim
+export SUDO_EDITOR=nvim
 
 # Custom function to get the current Git branch
 function __current_git_branch {
