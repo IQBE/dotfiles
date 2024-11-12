@@ -34,9 +34,9 @@
 #     -q, --quiet: Suppress output                                      #
 #     -y, --yes: Automatically answer yes to all prompts                #
 #     -o, --output: Output to a log file                                #
+#     -r, --recursive: Format files in subdirectories recursively       #
 #                                                                       #
 #   Planned features:                                                   #
-#   - Add the ability to format files in subdirectories recursively     #
 #   - Add the ability to format individual files                        #
 #   - Add the ability to format individual directories                  #
 #   - Add the ability to format only files/directories that follow      #
@@ -85,6 +85,12 @@ def argparser() -> argparse.Namespace:
         '--output',
         help='Output to a file instead of stdout'
     )
+    parser.add_argument(
+        '-r',
+        '--recursive',
+        action='store_true',
+        help='Format files in subdirectories recursively'
+    )
 
     args = parser.parse_args()
     return args
@@ -111,8 +117,10 @@ def format_string(s: str, type: str = 'file') -> str:
     sb = ''
 
     if type == 'file':
-        sf = s.rpartition('.')[0]
-        sb = s.rpartition('.')[2]
+        if '.' in s:
+            sf, _, sb = s.rpartition('.')
+        else:
+            sf = s
 
         sf_char = list(sf)
         sf_char[0] = sf_char[0].lower()
@@ -142,27 +150,36 @@ def format_string(s: str, type: str = 'file') -> str:
 def format_files(files: list) -> list:
     new_files = []
     for file in files:
-        new_files.append(format_string(file))
+        path, sep, file = file.rpartition(os.sep)
+        new_files.append(path + sep + format_string(file))
     return new_files
 
 def format_dirs(dirs: list) -> list:
     new_dirs = []
     for directory in dirs:
-        new_dirs.append(format_string(directory, 'dir'))
+        path, sep, directory = directory.rpartition(os.sep)
+        new_dirs.append(path + sep + format_string(directory, 'dir'))
     return new_dirs
 
 def get_files_in_directory(directory: str) -> list:
     files = []
     for file in os.listdir(directory):
-        if os.path.isfile(os.path.join(directory, file)):
-            files.append(file)
+        file_location = os.path.join(directory, file)
+        if os.path.isfile(file_location):
+            files.append(file_location)
+        elif args.recursive and os.path.isdir(file_location):
+            if not file.startswith('.'):
+                files += get_files_in_directory(file_location)
     return files
 
 def get_dirs_in_direcotry(direcotry: str) -> list:
     dirs = []
     for folder in os.listdir(direcotry):
-        if os.path.isdir(os.path.join(direcotry, folder)):
-            dirs.append(folder)
+        folder_location = os.path.join(direcotry, folder)
+        if os.path.isdir(folder_location) and not folder.startswith('.'):
+            dirs.append(folder_location)
+            if args.recursive:
+                dirs += get_dirs_in_direcotry(folder_location)
     return dirs
 
 def rename_file(file: str, new_file: str) -> None:
@@ -186,7 +203,7 @@ def format_directory(directory: str) -> None:
     new_files = format_files(files)
     rename_files(files, new_files)
 
-    dirs = get_dirs_in_direcotry(directory)
+    dirs = get_dirs_in_direcotry(directory)[::-1] # Reverse the list so that the path is not changed before renaming
     new_dirs = format_dirs(dirs)
     rename_dirs(dirs, new_dirs)
 
@@ -202,7 +219,7 @@ if __name__ == '__main__':
         sys.exit(1)
 
     if not args.yes:
-        answer = input(f'Are you sure you want to format the file and directory names in {path_to_dir}? [y/N] ')
+        answer = input(f'Are you sure you want to format the file and directory names in {path_to_dir}{ ' recursively' if args.recursive else '' }? [y/N] ')
     if args.yes or answer.lower() == 'y':
         format_directory(path_to_dir)
         logger('Name formatting completed', also_print=True)
