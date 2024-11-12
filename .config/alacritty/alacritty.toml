@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+import = ["~/.config/alacritty/myTheme.toml"]
 
 live_config_reload = true
 
