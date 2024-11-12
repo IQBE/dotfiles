@@ -1,0 +1,32 @@
+# This is a custom theme based on the bronokai theme for vscode
+
+# Default colors
+[colors.primary]
+background = '#1D1F21'
+foreground = '#35e6e6'
+
+[colors.cursor]
+text = '#C5C8C6'
+cursor = '#969896'
+
+# Normal colors
+[colors.normal]
+black   = '#000000'
+red     = '#E74C3C'
+green   = '#2ECC71'
+yellow  = '#F1C40F'
+blue    = '#3498DB'
+magenta = '#9b59b6'
+cyan    = '#1ABC9C'
+white   = '#bbbbbb'
+
+# Bright colors
+[colors.bright]
+black   = '#545454'
+red     = '#EF8B80'
+green   = '#69DD9A'
+yellow  = '#F5D451'
+blue    = '#74B9E7'
+magenta = '#BB8ECD'
+cyan    = '#3AE4C2'
+white   = '#ffffff'
