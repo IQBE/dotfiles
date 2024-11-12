@@ -3,7 +3,7 @@
 # Default colors
 [colors.primary]
 background = '#1D1F21'
-foreground = '#35e6e6'
+foreground = '#CCFFFF'
 
 [colors.cursor]
 text = '#C5C8C6'
@@ -11,7 +11,7 @@ cursor = '#969896'
 
 # Normal colors
 [colors.normal]
-black   = '#000000'
+black   = '#696969'
 red     = '#E74C3C'
 green   = '#2ECC71'
 yellow  = '#F1C40F'
@@ -22,7 +22,7 @@ white   = '#bbbbbb'
 
 # Bright colors
 [colors.bright]
-black   = '#545454'
+black   = '#949494'
 red     = '#EF8B80'
 green   = '#69DD9A'
 yellow  = '#F5D451'
