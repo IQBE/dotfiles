@@ -7,9 +7,10 @@ cp -r .fonts/ $HOME/
 cp -r .local/bin/ $HOME/.local/bin/
 cp .bashrc $HOME/.bashrc
 
+# OPTIONAL
 # Installing Catppuccin theme for Alacritty
-echo Installing alacritty theme...
-curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
+# echo Installing alacritty theme...
+# curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
 
 # Prompt to install software via package manager
 echo Configuration files in place. Please select your desired package manager to complete the installation:
