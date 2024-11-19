@@ -1,6 +1,6 @@
 general.import = ["~/.config/alacritty/myTheme.toml"]
 
-live_config_reload = true
+general.live_config_reload = true
 
 [window]
 dynamic_title = true
