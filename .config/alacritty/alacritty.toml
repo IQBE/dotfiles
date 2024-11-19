@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/myTheme.toml"]
+general.import = ["~/.config/alacritty/myTheme.toml"]
 
 live_config_reload = true
 
