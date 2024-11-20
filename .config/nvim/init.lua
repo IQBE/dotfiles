@@ -8,4 +8,3 @@ require("config.options")
 
 -- Plugins (lazy.nvim)
 require("config.lazy")
-vim.cmd.colorscheme "catppuccin-mocha"
