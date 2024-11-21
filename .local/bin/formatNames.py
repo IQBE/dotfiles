@@ -168,25 +168,14 @@ def format_string(s: str, type: str = 'file') -> str:
             new_sf_characters.append(character)
         next_char_upper = False
 
-    new_string = ''.join(new_sf_characters)
-    if type == 'file':
-        new_string += sp + sb
+    return ''.join(new_sf_characters) + sp + sb
 
-    return new_string
-
-def format_files(files: list) -> list:
-    new_files = []
-    for file in files:
-        path, sep, file = file.rpartition(os.sep)
-        new_files.append(path + sep + format_string(file))
-    return new_files
-
-def format_dirs(dirs: list) -> list:
-    new_dirs = []
-    for directory in dirs:
-        path, sep, directory = directory.rpartition(os.sep)
-        new_dirs.append(path + sep + format_string(directory, 'dir'))
-    return new_dirs
+def format_names(names: list, type: str = None) -> list:
+    new_names = []
+    for name in names:
+        path, sep, name = name.rpartition(os.sep)
+        new_names.append(path + sep + format_string(name, type))
+    return new_names
 
 def get_files_in_directory(directory: str) -> list:
     files = []
@@ -244,12 +233,12 @@ def rename_dirs(dirs: list, new_dirs: list) -> None:
 def format_directory(directory: str) -> None:
     if not args.dirs_only:
         files = get_files_in_directory(directory)
-        new_files = format_files(files)
+        new_files = format_names(files, 'file')
         rename_files(files, new_files)
 
     if not args.files_only:
         dirs = get_dirs_in_direcotry(directory)[::-1] # Reverse the list so that the path is not changed before renaming
-        new_dirs = format_dirs(dirs)
+        new_dirs = format_names(dirs, 'dir')
         rename_dirs(dirs, new_dirs)
 
 def format_targets(targets: list) -> None:
