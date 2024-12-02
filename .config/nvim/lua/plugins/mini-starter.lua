@@ -94,6 +94,11 @@ return {
           end,
           section = 'Actions',
         },
+        {
+          name = 'Lazy',
+          action = 'Lazy',
+          section = 'Actions',
+        },
         { name = 'Quit', action = 'qa', section = 'Actions' }
       },
     })
