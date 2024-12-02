@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# Create a temp folder in the current location
+mkdir temp
+
 # Set config files in place
-echo Copy all files and configurations to it\'s correct location...
+echo "Copy all files and configurations to it's correct location..."
 cp -r .config/ $HOME/
 cp -r .fonts/ $HOME/
 cp -r .local/bin/ $HOME/.local/bin/
@@ -13,7 +16,7 @@ cp .bashrc $HOME/.bashrc
 # curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
 
 # Prompt to install software via package manager
-echo Configuration files in place. Please select your desired package manager to complete the installation:
+echo "Configuration files in place. Please select your desired package manager to complete the installation:"
 echo "1) apt (Debian/Ubuntu)"
 echo "2) dnf (Fedora)"
 echo "3) yum (RHEL)"
@@ -51,10 +54,28 @@ case $CHOICE in
 esac
 
 # Install latest npm version and yarn globally
-echo Installing yarn...
+echo "Installing yarn..."
 sudo npm i -g npm@latest 2>>log.txt
-sudo npm i -g yarn 2>>log.txt 
+sudo npm i -g yarn 2>>log.txt
 
+# Install keyd and configure
+read -p "Do you want to install keyd and setup my keybinds? [y/N] " yn
+
+case $yn in
+  [yY] ) cd temp;
+    git clone https://github.com/rvaiya/keyd;
+    cd keyd;
+    make && sudo make install;
+    sudo systemctl enable keyd && sudo systemctl start keyd;
+    cd ..;
+    sudo cp keyd/default.conf /etc/keyd/default.conf;;
+  * ) echo "Skipping keyd...";;
+esac
+
+# Remove temporary files
+rm -r temp
+
+# Wrap up
 if [ -s log.txt ]; then
   echo Warning! Some packages were not installed. Please check log.txt for a detailed overview.
 else
