@@ -15,3 +15,11 @@ vim.opt.softtabstop = 2
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 10
 vim.opt.incsearch = true
+vim.opt.listchars = {
+  space = "·",
+  tab = "→ ",
+  trail = "~",
+  extends = ">",
+  precedes = "<"
+}
+vim.opt.list = true
