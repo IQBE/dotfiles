@@ -9,10 +9,10 @@ vim.keymap.set('n', '<Leader>fg', builtin.live_grep, { desc = "Find Word" })
 vim.keymap.set('n', '<Leader>fm', builtin.marks, { desc = "Jump to Bookmarks" })
 
 -- Move (selected) line(s) up/down
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("n", "J", ":m .+1<CR>==")
-vim.keymap.set("n", "K", ":m .-2<CR>==")
+vim.keymap.set("v", "<Leader>j", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<Leader>k", ":m '<-2<CR>gv=gv")
+vim.keymap.set("n", "<Leader>j", ":m .+1<CR>==")
+vim.keymap.set("n", "<Leader>k", ":m .-2<CR>==")
 
 -- Indenting using > and < in visual mode
 vim.keymap.set("v", "<", "<gv")
