@@ -1,0 +1,14 @@
+# Git and version control
+\.git
+\.gitignore
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+# Specifics
+img/
+keyd/
+
+installPackages.txt
+setup.sh
+log.txt

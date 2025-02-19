@@ -3,30 +3,18 @@
 # Create a temp folder in the current location
 mkdir temp
 
-# Set config files in place
-echo "Copy all files and configurations to it's correct location..."
-cp -r .config/ $HOME/
-cp -r .fonts/ $HOME/
-cp -r .local/bin/ $HOME/.local/bin/
-cp .bashrc $HOME/.bashrc
-
-# OPTIONAL
-# Installing Catppuccin theme for Alacritty
-# echo Installing alacritty theme...
-# curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
-
 # Prompt to install software via package manager
-echo "Configuration files in place. Please select your desired package manager to complete the installation:"
+echo "Please select your desired package manager to complete the installation:"
 echo "1) apt (Debian/Ubuntu)"
 echo "2) dnf (Fedora)"
 echo "3) yum (RHEL)"
 echo "4) zypper (OpenSUSE)"
 echo "5) pacman (Arch)"
-echo "6) I will install the software myself (check installPackages.txt)"
+echo "6) Cancel..."
 read -p "> " CHOICE
 
-while [[ ! $CHOICE =~ ^[1-6]$ ]]; do
-    echo "Please enter a number between 1 and 6!"
+while [[ ! $CHOICE =~ ^[1-5]$ ]]; do
+    echo "Please enter a number between 1 and 5!"
     read -p "> " CHOICE
 done
 
@@ -49,7 +37,7 @@ case $CHOICE in
     for i in $(cat installPackages.txt); do sudo pacman -S --noconfirm $i 2>>log.txt; done
     ;;
   6)
-    echo "Please refer to installPackages.txt for the list of packages to install."
+    exit
     ;;
 esac
 
@@ -57,6 +45,16 @@ esac
 echo "Installing yarn..."
 sudo npm i -g npm@latest 2>>log.txt
 sudo npm i -g yarn 2>>log.txt
+
+# Set config files in place
+echo "Using stow to create the symbolic links..."
+stow . 2>>log.txt
+
+# OPTIONAL
+# Installing Catppuccin theme for Alacritty
+# echo Installing alacritty theme...
+# curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
+
 
 # Install keyd and configure
 read -p "Do you want to install keyd and setup my keybinds? [y/N] " yn
@@ -73,11 +71,11 @@ case $yn in
 esac
 
 # Remove temporary files
-rm -r temp
+command rm -r temp
 
 # Wrap up
 if [ -s log.txt ]; then
-  echo Warning! Some packages were not installed. Please check log.txt for a detailed overview.
+  echo Done! A log.txt was generated containing detailed overview of problems that might have occured.
 else
   echo Done! Everything installed successfully.
 fi

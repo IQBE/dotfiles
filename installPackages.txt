@@ -1,3 +1,4 @@
+stow
 neovim
 alacritty
 nodejs
