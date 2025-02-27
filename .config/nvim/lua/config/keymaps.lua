@@ -21,10 +21,16 @@ vim.keymap.set("v", ">", ">gv")
 -- Set shortcuts for copying to clipboard
 vim.keymap.set('v', "<Leader>y", '"+y')
 vim.keymap.set('n', "<Leader>y", '"+y')
-vim.keymap.set('n', "<Leader>Y", '"+yg_')
+vim.keymap.set('n', "<Leader>Y", '"+Y')
 
 -- Set shortcuts for pasting from clipboard
 vim.keymap.set('v', "<Leader>p", '"+p')
 vim.keymap.set('n', "<Leader>p", '"+p')
 vim.keymap.set('v', "<Leader>P", '"+P')
 vim.keymap.set('n', "<Leader>P", '"+P')
+
+-- Center on navigations
+vim.keymap.set('n', "<C-d>", "<C-d>zz")
+vim.keymap.set('n', "<C-u>", "<C-u>zz")
+vim.keymap.set('n', "<C-f>", "<C-f>zz")
+vim.keymap.set('n', "<C-b>", "<C-b>zz")
