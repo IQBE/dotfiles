@@ -48,6 +48,7 @@ sudo npm i -g yarn 2>>log.txt
 
 # Set config files in place
 echo "Using stow to create the symbolic links..."
+mv ~/.bashrc ~/.bashrc.bak
 stow . 2>>log.txt
 
 # OPTIONAL
