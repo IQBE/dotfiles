@@ -4,8 +4,8 @@
 # Aliasses
 alias l='ls -CF'
 alias la='ls -AlCF'
-alias ll='ls -al'
-alias lsd='ls -alF | grep'
+alias ll='ls -AlF'
+alias lsd='ll | grep'
 alias cls='clear'
 alias bashrc='nvim $HOME/.bashrc'
 alias rldbash='source $HOME/.bashrc'
@@ -24,7 +24,7 @@ alias ls='ls --color=auto'
 alias sudoedit='function _sudoedit() { sudo -e "$1"; }; _sudoedit'
 
 function cd {
-	builtin cd "$@" && ls -F
+  builtin cd "$@" && ls -F
 }
 
 # Completion improvements
@@ -47,12 +47,12 @@ export SUDO_EDITOR=nvim
 
 # Custom function to get the current Git branch
 function __current_git_branch {
-    # Check if the current directory is inside a Git repository
-    if git rev-parse --is-inside-work-tree &>/dev/null; then
-        # Get the current branch name
-        branch=$(git rev-parse --abbrev-ref HEAD)
-	echo "($branch)"
-    fi
+  # Check if the current directory is inside a Git repository
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    # Get the current branch name
+    branch=$(git rev-parse --abbrev-ref HEAD)
+    echo "($branch)"
+  fi
 }
 
 # Beautify console
@@ -76,22 +76,22 @@ __setprompt
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+  . /etc/bashrc
 fi
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-    for rc in ~/.bashrc.d/*; do
-        if [ -f "$rc" ]; then
-            . "$rc"
-        fi
-    done
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
 fi
 unset rc
 

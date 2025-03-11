@@ -6,8 +6,8 @@
 ^/COPYING
 
 # Specifics
-img/
-keyd/
+img
+keyd
 
 installPackages.txt
 setup.sh
