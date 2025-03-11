@@ -21,20 +21,20 @@ done
 case $CHOICE in
   1)
     sudo apt update
-    for i in $(cat installPackages.txt); do sudo apt install -y $i 2>>log.txt; done
+    for i in $(cat installPackages.txt); do sudo apt install -y $i; done
     ;;
   2)
-    for i in $(cat installPackages.txt); do sudo dnf install -y $i 2>>log.txt; done
+    for i in $(cat installPackages.txt); do sudo dnf install -y $i; done
     ;;
   3)
-    for i in $(cat installPackages.txt); do sudo yum install -y $i 2>>log.txt; done
+    for i in $(cat installPackages.txt); do sudo yum install -y $i; done
     ;;
   4)
-    for i in $(cat installPackages.txt); do sudo zypper install -y $i 2>>log.txt; done
+    for i in $(cat installPackages.txt); do sudo zypper install -y $i; done
     ;;
   5)
     sudo pacman -Sy
-    for i in $(cat installPackages.txt); do sudo pacman -S --noconfirm $i 2>>log.txt; done
+    for i in $(cat installPackages.txt); do sudo pacman -S --noconfirm $i; done
     ;;
   6)
     exit
@@ -43,13 +43,13 @@ esac
 
 # Install latest npm version and yarn globally
 echo "Installing yarn..."
-sudo npm i -g npm@latest 2>>log.txt
-sudo npm i -g yarn 2>>log.txt
+sudo npm i -g npm@latest
+sudo npm i -g yarn
 
 # Set config files in place
 echo "Using stow to create the symbolic links..."
 mv ~/.bashrc ~/.bashrc.bak
-stow . 2>>log.txt
+stow .
 
 # OPTIONAL
 # Installing Catppuccin theme for Alacritty
