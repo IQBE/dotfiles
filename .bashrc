@@ -4,12 +4,13 @@
 # Aliasses
 alias l='ls -CF'
 alias la='ls -AlCF'
-alias ll='ls -AlF'
+alias ll='ls -AlFsh'
 alias lsd='ll | grep'
 alias cls='clear'
 alias bashrc='nvim $HOME/.bashrc'
 alias rldbash='source $HOME/.bashrc'
 alias cd-='cd -'
+alias ..='cd -'
 alias mkdire='function _mkdire() { mkdir -p "$1" && cd "$1"; }; _mkdire'
 alias svim='sudoedit'
 
@@ -20,11 +21,11 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias vi='nvim'
 alias vim='nvim'
-alias ls='ls --color=auto'
+alias ls='ls --color=auto --group-directories-first'
 alias sudoedit='function _sudoedit() { sudo -e "$1"; }; _sudoedit'
 
 function cd {
-  builtin cd "$@" && ls -F
+  builtin cd "$@" && l
 }
 
 # Completion improvements
