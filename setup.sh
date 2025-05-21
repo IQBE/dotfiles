@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Create a temp folder in the current location
 mkdir temp
@@ -46,6 +46,42 @@ echo "Installing yarn..."
 sudo npm i -g npm@latest
 sudo npm i -g yarn
 
+# Generating ssh key
+KEY_PATH="$HOME/.ssh/id_ed25519"
+
+if [ ! -f "$KEY_PATH" ]; then
+    echo "Generating SSH key for auth..."
+    ssh-keygen -t ed25519 -f "$KEY_PATH"
+else
+    echo "SSH key already exists at $KEY_PATH"
+fi
+
+# Setting up key signing for git commits
+KEY_PATH_GIT="$HOME/.ssh/id_ed25519_git"
+
+if [ ! -f "$KEY_PATH_GIT" ]; then
+    echo "Generating SSH key for Git signing..."
+    ssh-keygen -t ed25519 -C "git@quateau.net" -f "$KEY_PATH_GIT"
+else
+    echo "SSH key already exists at $KEY_PATH_GIT"
+fi
+
+eval "$(ssh-agent -s)"
+ssh-add "$KEY_PATH_GIT"
+
+SIGNING_KEY="key::$(cat ${KEY_PATH_GIT}.pub)"
+
+echo "Adding signingKey to git config"
+
+cat > .config/git/local-config <<EOF
+[user]
+    signingKey = $SIGNING_KEY
+EOF
+
+cat > .config/git/allowed_signers <<EOF
+IQBE $(cut -d' ' -f1-2 $KEY_PATH_GIT.pub)
+EOF
+
 # Set config files in place
 echo "Using stow to create the symbolic links..."
 mv ~/.bashrc ~/.bashrc.bak
@@ -75,6 +111,10 @@ esac
 command rm -r temp
 
 # Wrap up
+echo "Your SSH public key for auth:"
+cat "${KEY_PATH}.pub"
+echo "Your SSH public key for signing:"
+cat "${KEY_PATH_GIT}.pub"
 if [ -s log.txt ]; then
   echo Done! A log.txt was generated containing detailed overview of problems that might have occured.
 else

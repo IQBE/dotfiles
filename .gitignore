@@ -1,2 +1,5 @@
 log.txt
 **/lazy-lock.json
+**/local-config
+.fonts/.uuid
+.config/git/allowed_signers

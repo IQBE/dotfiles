@@ -1,0 +1,27 @@
+[user]
+  name = IQBE
+  email = git@quateau.net
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+    allowedSignersFile = ~/.config/git/allowed_signers
+
+[commit]
+  gpgsign = true
+
+[tag]
+  gpgsign = true
+
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+[push]
+  default = current
+
+[color]
+  ui = auto
+
+[include]
+  path = ~/.config/git/local-config
