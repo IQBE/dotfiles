@@ -2,6 +2,27 @@
   name = IQBE
   email = git@quateau.net
 
+[core]
+  autocrlf = input
+  safecrlf = true
+  whitespace = warn,trailing-space,space-before-tab,tab-in-indent,cr-at-eol
+
+[blame]
+  coloring = highlightRecent
+  date = relative
+
+[init]
+  defaultBranch = main
+
+[status]
+  branch = true
+  short = true
+  showStash = true
+  showUntrackedFiles = all
+
+[pager]
+  diff = less
+
 [gpg]
   format = ssh
 
@@ -11,14 +32,21 @@
 [commit]
   gpgsign = true
 
+[push]
+  default = current
+
 [tag]
   gpgsign = true
+  sort = -taggerdate
+
+[branch]
+  sort = -committerdate
+
+[rebase]
+  autoStash = true
 
 [alias]
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-
-[push]
-  default = current
 
 [color]
   ui = auto
