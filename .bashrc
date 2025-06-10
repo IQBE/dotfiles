@@ -29,6 +29,14 @@ function cd {
   builtin cd "$@" && l
 }
 
+function dnf {
+  if command -v dnf5 &>/dev/null; then
+    command dnf5 "$@"
+  else
+    command dnf "$@"
+  fi
+}
+
 # Completion improvements
 bind 'set completion-ignore-case on'
 
@@ -100,3 +108,4 @@ unset rc
 # Startup commands
 fastfetch
 l
+. "$HOME/.cargo/env"
