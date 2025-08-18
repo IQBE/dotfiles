@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+sudo dnf upgrade -y
+sudo flatpak update -y
