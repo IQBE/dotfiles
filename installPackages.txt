@@ -3,3 +3,4 @@ neovim
 alacritty
 nodejs
 fastfetch
+ripgrep

@@ -30,6 +30,7 @@ alias ..='cd ..'
 alias mkdire='function _mkdire() { mkdir -p "$1" && cd "$1"; }; _mkdire'
 alias svim='sudoedit'
 alias py='python'
+alias grep='rg'
 
 # Overrides
 alias free='free -h'
