@@ -4,3 +4,4 @@ alacritty
 nodejs
 fastfetch
 ripgrep
+fd-find
