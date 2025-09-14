@@ -77,8 +77,12 @@ function __current_git_branch {
   # Check if the current directory is inside a Git repository
   if git rev-parse --is-inside-work-tree &>/dev/null; then
     # Get the current branch name
-    branch=$(git rev-parse --abbrev-ref HEAD)
-    echo "($branch)"
+    branch=$(git symbolic-ref --short -q HEAD 2>/dev/null)
+    if [ -n "$branch" ]; then
+      echo "($branch)"
+    else
+      echo "(empty repo)"
+    fi
   fi
 }
 
