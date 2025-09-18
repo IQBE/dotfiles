@@ -87,12 +87,6 @@ echo "Using stow to create the symbolic links..."
 mv ~/.bashrc ~/.bashrc.bak
 stow .
 
-# OPTIONAL
-# Installing Catppuccin theme for Alacritty
-# echo Installing alacritty theme...
-# curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
-
-
 # Install keyd and configure
 read -p "Do you want to install keyd and setup my keybinds? [y/N] " yn
 
