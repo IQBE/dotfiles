@@ -111,7 +111,11 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
+# Check if rust is installed, and if so, initialize it's environment.
+if [ -r "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
+
 # Startup commands
 fastfetch
 l
-. "$HOME/.cargo/env"
