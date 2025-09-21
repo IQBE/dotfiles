@@ -1,4 +1,53 @@
 #!/usr/bin/env bash
 
-sudo dnf upgrade -y
-sudo flatpak update -y
+set -e
+
+update_flatpak() {
+  if command -v flatpak &>/dev/null; then
+    echo "Updating Flatpak..."
+    sudo flatpak update -y
+  fi
+}
+
+update_snap() {
+  if command -v snap &>/dev/null; then
+    echo "Updating Snap..."
+    sudo snap refresh
+  fi
+}
+
+update_fedora() {
+  echo "Updating Fedora..."
+  sudo dnf upgrade -y
+}
+
+update_debian_ubuntu() {
+  echo "Updating Debian/Ubuntu..."
+  sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+}
+
+update_nixos() {
+  echo "Updating NixOS..."
+  sudo nix-channel --update
+  sudo nixos-rebuild switch --upgrade
+}
+
+main() {
+  if [ -f /etc/fedora-release ]; then
+    update_fedora
+  elif [ -f /etc/debian_version ]; then
+    update_debian_ubuntu
+  elif [ -f /etc/NIXOS ]; then
+    update_nixos
+  else
+    echo "Unsupported distribution."
+    echo "Currently, this script only updates fedora, debian/ubuntu and nixos."
+    exit 1
+  fi
+  update_flatpak
+  update_snap
+
+  echo "Done! Everything has been updated."
+}
+
+main "$@"
