@@ -8,6 +8,7 @@
 # Specifics
 img
 keyd
+root-symlinks
 
 installPackages.txt
 setup.sh

@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+echo "Backing up important files..."
+mv ~/.bashrc ~/.bashrc.bak
+sudo mv /etc/dnf/dnf.conf /etc/dnf/dnf.conf.bak
+
 # Create a temp folder in the current location
 mkdir temp
 
@@ -10,11 +14,11 @@ echo "2) dnf (Fedora)"
 echo "3) yum (RHEL)"
 echo "4) zypper (OpenSUSE)"
 echo "5) pacman (Arch)"
-echo "6) Cancel..."
+echo "6) Don't install system packages"
 read -p "> " CHOICE
 
-while [[ ! $CHOICE =~ ^[1-5]$ ]]; do
-    echo "Please enter a number between 1 and 5!"
+while [[ ! $CHOICE =~ ^[1-6]$ ]]; do
+    echo "Please enter a number between 1 and 6!"
     read -p "> " CHOICE
 done
 
@@ -37,7 +41,7 @@ case $CHOICE in
     for i in $(cat installPackages.txt); do sudo pacman -S --noconfirm $i; done
     ;;
   6)
-    exit
+    echo "Warning: Not installing system packages may have side effects. Continuing setup..."
     ;;
 esac
 
@@ -84,8 +88,8 @@ EOF
 
 # Set config files in place
 echo "Using stow to create the symbolic links..."
-mv ~/.bashrc ~/.bashrc.bak
 stow .
+sudo stow -t / root-symlinks
 
 # Install keyd and configure
 read -p "Do you want to install keyd and setup my keybinds? [y/N] " yn
