@@ -19,6 +19,10 @@ update_snap() {
 update_fedora() {
   echo "Updating Fedora..."
   sudo dnf upgrade -y
+
+  echo "Cleaning up..."
+  sudo dnf autoremove -y
+  sudo dnf clean all -y
 }
 
 update_debian_ubuntu() {
