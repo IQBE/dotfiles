@@ -11,6 +11,9 @@
   coloring = highlightRecent
   date = relative
 
+[fetch]
+  writeCommitGraph = true
+
 [init]
   defaultBranch = main
 
@@ -34,6 +37,7 @@
 
 [push]
   default = current
+  gpgsign = if-asked
 
 [tag]
   gpgsign = true
@@ -44,9 +48,16 @@
 
 [rebase]
   autoStash = true
+  updateRefs = true
+
+[rerere]
+  enabled = true
 
 [alias]
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  deep-blame = blame -C -C -C
+  wdiff = diff --word-diff
+  blame = blame -w
 
 [color]
   ui = auto
