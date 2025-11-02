@@ -4,7 +4,7 @@
 
 [core]
   autocrlf = input
-  safecrlf = true
+  safecrlf = false
   whitespace = warn,trailing-space,space-before-tab,tab-in-indent,cr-at-eol
 
 [blame]
