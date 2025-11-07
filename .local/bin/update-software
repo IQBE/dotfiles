@@ -36,6 +36,13 @@ update_nixos() {
   sudo nixos-rebuild switch --upgrade
 }
 
+update_rust() {
+  if [ -r "$HOME/.cargo/env" ]; then
+    echo "Updating Rust..."
+    $HOME/.cargo/bin/rustup update
+  fi
+}
+
 main() {
   if [ -f /etc/fedora-release ]; then
     update_fedora
@@ -50,6 +57,7 @@ main() {
   fi
   update_flatpak
   update_snap
+  update_rust
 
   echo "Done! Everything has been updated."
 }
