@@ -9,6 +9,7 @@
 img
 keyd
 root-symlinks
+temp
 
 installPackages.txt
 setup.sh
