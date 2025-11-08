@@ -91,20 +91,6 @@ echo "Using stow to create the symbolic links..."
 stow .
 sudo stow -t / root-symlinks
 
-# Install keyd and configure
-read -p "Do you want to install keyd and setup my keybinds? [y/N] " yn
-
-case $yn in
-  [yY] ) cd temp;
-    git clone https://github.com/rvaiya/keyd;
-    cd keyd;
-    make && sudo make install;
-    cd ../..;
-    sudo cp keyd/default.conf /etc/keyd/default.conf;
-    sudo systemctl enable keyd && sudo systemctl start keyd;;
-  * ) echo "Skipping keyd...";;
-esac
-
 # Remove temporary files
 command rm -r temp
 
