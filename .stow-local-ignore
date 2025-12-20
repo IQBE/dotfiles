@@ -13,4 +13,6 @@ temp
 
 installPackages.txt
 setup.sh
+update.sh
+uninstall.sh
 log.txt
