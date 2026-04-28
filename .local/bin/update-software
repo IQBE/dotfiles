@@ -44,7 +44,7 @@ update_rust() {
 }
 
 main() {
-  if [ -f /etc/fedora-release ]; then
+  if [[ -f /etc/fedora-release || -f /etc/nobara-release ]]; then
     update_fedora
   elif [ -f /etc/debian_version ]; then
     update_debian_ubuntu
