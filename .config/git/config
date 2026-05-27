@@ -1,66 +1,62 @@
-[user]
-  name = Ilya Quateau
-  email = git@quateau.net
-
-[core]
-  autocrlf = input
-  safecrlf = false
-  whitespace = warn,trailing-space,space-before-tab,tab-in-indent,cr-at-eol
+[alias]
+	blame = "blame -w"
+	deep-blame = "blame -C -C -C"
+	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+	wdiff = "diff --word-diff"
 
 [blame]
-  coloring = highlightRecent
-  date = relative
-
-[fetch]
-  writeCommitGraph = true
-
-[init]
-  defaultBranch = main
-
-[status]
-  branch = true
-  short = true
-  showStash = true
-  showUntrackedFiles = all
-
-[pager]
-  diff = less
-
-[gpg]
-  format = ssh
-
-[gpg "ssh"]
-    allowedSignersFile = ~/.config/git/allowed_signers
-
-[commit]
-  gpgsign = true
-
-[push]
-  default = current
-  gpgsign = if-asked
-
-[tag]
-  gpgsign = true
-  sort = -taggerdate
+	coloring = "highlightRecent"
+	date = "relative"
 
 [branch]
-  sort = -committerdate
-
-[rebase]
-  autoStash = true
-  updateRefs = true
-
-[rerere]
-  enabled = true
-
-[alias]
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  deep-blame = blame -C -C -C
-  wdiff = diff --word-diff
-  blame = blame -w
+	sort = "-committerdate"
 
 [color]
-  ui = auto
+	ui = "auto"
 
-[include]
-  path = ~/.config/git/local-config
+[commit]
+	gpgsign = true
+
+[core]
+	autocrlf = "input"
+	safecrlf = false
+	whitespace = "warn,trailing-space,space-before-tab,tab-in-indent,cr-at-eol"
+
+[fetch]
+	writeCommitGraph = true
+
+[init]
+	defaultBranch = "main"
+
+[pager]
+	diff = "less"
+
+[push]
+	default = "current"
+	gpgsign = "if-asked"
+
+[rebase]
+	autoStash = true
+	updateRefs = true
+
+[rerere]
+	enabled = true
+
+[signing]
+	format = "gpg"
+	signByDefault = true
+
+[status]
+	branch = true
+	short = true
+	showStash = true
+	showUntrackedFiles = "all"
+
+[tag]
+	gpgsign = true
+	sort = "-taggerdate"
+
+[user]
+	email = "git@quateau.net"
+	name = "Ilya Quateau"
+	signingkey = "97C047EC0FE0A3F150E4CE39D27EA2E824BD4C5E"
