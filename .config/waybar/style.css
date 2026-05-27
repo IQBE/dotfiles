@@ -1,0 +1,150 @@
+/*
+Base colors
+--background: #1D1F21;
+--foreground: #CCFFFF;
+--text: #C5C8C6;
+--cursor: #969896;
+
+Normal colors
+--black: #696969;
+--red: #E74C3C;
+--green: #2ECC71;
+--yellow: #F1C40F;
+--blue: #3498DB;
+--magenta: #9B59B6;
+--cyan: #1ABC9C;
+--white: #BBBBBB;
+
+Bright colors
+--black-bright: #949494;
+--red-bright: #EF8B80;
+--green-bright: #69DD9A;
+--yellow-bright: #F5D451;
+--blue-bright: #74B9E7;
+--magenta-bright: #BB8ECD;
+--cyan-bright: #3AE4C2;
+--white-bright: #FFFFFF;
+*/
+
+* {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #C5C8C6;
+    min-height: 0;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    border: 1px solid transparent;
+    transition: border 0.5s;
+}
+
+*:hover {
+    border: 1px solid white;
+}
+
+.modules-left {
+    margin-left: 8px;
+}
+
+.modules-right {
+    margin-right: 8px;
+}
+
+tooltip {
+    background-color: #1D1F21;
+    border: 1px solid #C5C8C6;
+}
+
+#battery {
+    background: #1D1F21;
+    border-radius: 5px 0 0 15px;
+    border-right: 1px solid #C5C8C6;
+    padding: 2px 8px;
+    margin-left: 4px;
+}
+
+#power-profiles-daemon {
+    background: #1D1F21;
+    border-radius: 0 15px 5px 0;
+    padding: 2px 12px 2px 8px;
+}
+
+#battery.charging, #battery.plugged {
+    color: #C5C8C6;
+    padding: 2px 8px;
+}
+
+#battery.warning:not(.charging) {
+    color: #FF9D00;
+}
+
+#battery.critical:not(.charging) {
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    background-color: #E74C3C;
+    color: #BBBBBB;
+}
+
+#clock {
+    background: #1D1F21;
+    border-radius: 5px 15px;
+    padding: 2px 8px;
+}
+
+#network {
+    background: #1D1F21;
+    border-radius: 5px 15px;
+    padding: 2px 8px;
+    margin-left: 4px;
+}
+
+#network.disconnected {
+    background: #1f1f1f;
+    color: red;
+}
+
+window#waybar,
+#workspaces {
+    background: transparent;
+    border: none;
+}
+
+#workspaces button:hover:not(.focused) {
+    border: 1px solid #ffffff;
+}
+
+#workspaces button {
+    background: #1D1F21;
+    border-radius: 5px 15px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#workspaces button.focused {
+    background: #1D1F21;
+    border: 1px solid white;
+    color: white;
+    font-weight: 700;
+}
+
+#workspaces button.urgent {
+    background-color: #E74C3C;
+}
+
+#pulseaudio,
+#bluetooth {
+    background: #1D1F21;
+    border-radius: 5px 15px;
+    padding: 2px 8px;
+    margin-left: 4px;
+}
+
+#custom-power-menu {
+    background: #1D1F21;
+    border-radius: 50%;
+    padding: 2px 9px;
+    margin-right: 4px;
+}
+

@@ -1,0 +1,128 @@
+//====================================================================================================//
+// Waybar Configuration File                                                                          //
+//----------------------------------------------------------------------------------------------------//
+// Purpose: Creates a minimalistic (yet functional) waybar at                                         //
+// the top of the screen.                                                                             //
+// themes and colors, set the wallpaper, and more.                                                    //
+//                                                                                                    //
+// License: Creative Commons Attribution 4.0 International                                            //
+//                                                                                                    //
+// Credit:                                                                                            //
+// Battery section adapted from:                                                                      //
+// https://github.com/Egosummiki/dotfiles/blob/master/waybar/config                                   //
+//                                                                                                    //
+// Pipewire audio adapted from:                                                                       //
+// https://www.reddit.com/r/swaywm/comments/sks343/pwvolume_pipewire_volume_control_and_waybar_module //
+//====================================================================================================//
+
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "spacing": 0,
+    "margin-top": 0,
+    "margin-bottom": 0,
+
+    "modules-left": ["custom/power-menu","sway/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio","network","bluetooth","battery","power-profiles-daemon"],
+
+    // Configuration for individual modules
+     "sway/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": false,
+         "format": "{name}",
+    },
+
+    "clock": {
+        "timezone": "Europe/Brussels",
+        "interval": 1,
+        "tooltip-format": "<big>{:%H:%M:%S}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%d %b %Y | %H:%M}",
+        "calendar": {
+            "mode"        : "year",
+            "mode-mon-col": 3,
+            "weeks-pos"   : "left",
+            "format": {
+                "months"    : "<span color='#c5c8c6'><b>{}</b></span>",
+                "days"      : "<span color='#c5c8c6'><b>{}</b></span>",
+                "weeks"     : "<span color='#1abc9c'><b>W{}</b></span>",
+                "weekdays"  : "<span color='#f1c40f'><b>{}</b></span>",
+                "today"     : "<span color='#e74c3c'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15,
+        },
+        "format": "{icon}    {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+    },
+
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      },
+      "interval": 60
+    },
+
+    "network": {
+        "format-wifi": "    {essid} ({signalStrength}%)",
+        "format-ethernet": "Connected  ",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{bandwidthUpBits} ⇅ {bandwidthDownBits}",
+        "interval": 1,
+        "max-width": 50
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "  ---%",
+        "format-icons": {
+            "headphone": "",
+            "default": ["", "  "]
+        },
+        "reverse-scrolling": true,
+        "scroll-step": 5,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+
+    "custom/power-menu": {
+        "format" : "⏻",
+            "tooltip": false,
+            "menu": "on-click",
+            "menu-file": "~/.config/waybar/power_menu.xml",
+            "menu-actions": {
+                "shutdown": "swaynag -t warning -m 'Do you really want to shutdown?' -B 'Yes, bye bye!' 'shutdown -h now'",
+                "reboot": "reboot",
+                "suspend": "systemctl suspend",
+                "hibernate": "systemctl hibernate",
+            },
+    },
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    }
+}
