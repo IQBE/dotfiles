@@ -6,3 +6,4 @@ fastfetch
 ripgrep
 fd-find
 gnupg
+zoxide
