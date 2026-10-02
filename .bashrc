@@ -31,6 +31,7 @@ alias mkdire='function _mkdire() { mkdir -p "$1" && jump "$1"; }; _mkdire'
 alias svim='sudoedit'
 alias py='python'
 alias grep='rg'
+alias claudemd='nvim $HOME/.claude/CLAUDE.md'
 
 # Overrides
 alias free='free -h'
@@ -115,6 +116,12 @@ export PATH
 # Check if rust is installed, and if so, initialize it's environment.
 if [ -r "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
+fi
+
+# Check if bun is installed, and if so, initialize it's environment.
+if [ -r "$HOME/.bun/bin/bun" ]; then
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH="$BUN_INSTALL/bin:$PATH"
 fi
 
 # shellcheck shell=bash
