@@ -45,7 +45,7 @@ wikis to get info while building a project.
 
 ## When planning
 - I want clear, human readable plans in english.
-- Provide mermaid diagrams for visuals when valuable.
+- Provide mermaid diagrams for visuals when valuable (text-rendered in chat, see Styling rules).
 
 ## When building
 - I want to get a short description of what you are building and where you made changes.
@@ -62,8 +62,11 @@ wikis to get info while building a project.
 
 # Styling rules
 - NEVER use em-dashes. Only use '-' instead.
-- Markdown for text, use mermaid diagrams for visuals if usefull or asked. Only when writing to a .md file,
-  not when responding to my prompt directly.
+- Markdown for text, use mermaid diagrams for visuals if usefull or asked.
+  - In a .md file: write normal mermaid source blocks.
+  - In a chat reply: you can give me mermaid diagrams, but always text-rendered. My terminal
+    (Alacritty) can't show images, so render them to Unicode text with the `mermaid-text` skill
+    (merman-cli) and paste the rendered result. Never paste raw mermaid source as the diagram.
 - Always use the best practices and styling rules for the programming language of the project.
 
 # Goals
