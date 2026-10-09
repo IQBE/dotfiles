@@ -42,6 +42,8 @@ wikis to get info while building a project.
   in total'. This doesn't need to be done every single time you display something, but at logical stages.
 - When in doubt, ask me directly. I don't mind answering more questions if that means you can build it better.
 - By default you can use up to 3 sub agents to split up work. I could specify otherwise.
+- When writing markdown files, don't put in new lines when the text gets to long. I use editors with automatic
+  wrapping features so it's not needed. If it's needed, I will tell you myself.
 
 ## When planning
 - I want clear, human readable plans in english.
