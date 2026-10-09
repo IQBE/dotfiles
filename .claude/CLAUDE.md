@@ -58,7 +58,11 @@ wikis to get info while building a project.
 - Never put secrets in plain text/code. Prefer .env files.
 - Always include a logical .gitignore file for code projects and update it if neceseary.
 - Tell me plainly what you verified and what you didn't. If a test fails, don't smooth it over.
-- NEVER commit any changes directly using git; I will do this manually.
+- When working in a git repository:
+  - NEVER commit any changes directly using git; I will do this manually.
+  - The last line of your chat reply should always be "Suggested commit message: ...". This commit message
+    needs to be very short, to the point and contain what changed; not only in the current session, but
+    everything that changed since the last known commit.
 
 # Styling rules
 - NEVER use em-dashes. Only use '-' instead.
