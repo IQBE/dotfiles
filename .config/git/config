@@ -1,62 +1,72 @@
 [alias]
-	blame = "blame -w"
-	deep-blame = "blame -C -C -C"
-	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-	wdiff = "diff --word-diff"
+  blame = "blame -w"
+  deep-blame = "blame -C -C -C"
+  lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+  wdiff = "diff --word-diff"
 
 [blame]
-	coloring = "highlightRecent"
-	date = "relative"
+  coloring = "highlightRecent"
+  date = "relative"
 
 [branch]
-	sort = "-committerdate"
+  sort = "-committerdate"
 
 [color]
-	ui = "auto"
+  ui = "auto"
 
 [commit]
-	gpgsign = true
+  gpgsign = true
 
 [core]
-	autocrlf = "input"
-	safecrlf = false
-	whitespace = "warn,trailing-space,space-before-tab,tab-in-indent,cr-at-eol"
+  autocrlf = "input"
+  editor = "nvim"
+  pager = "delta"
+  safecrlf = false
+  whitespace = "warn,trailing-space,space-before-tab,tab-in-indent,cr-at-eol"
+
+[delta]
+  dark = true
+  line-numbers = true
+  navigate = true
 
 [fetch]
-	writeCommitGraph = true
+  writeCommitGraph = true
 
 [init]
-	defaultBranch = "main"
+  defaultBranch = "main"
 
-[pager]
-	diff = "less"
+[interactive]
+  diffFilter = "delta --color-only"
+
+[merge]
+  conflictStyle = "zdiff3"
 
 [push]
-	default = "current"
-	gpgsign = "if-asked"
+  default = "current"
+  gpgsign = "if-asked"
 
 [rebase]
-	autoStash = true
-	updateRefs = true
+  autoStash = true
+  updateRefs = true
 
 [rerere]
-	enabled = true
+  enabled = true
 
 [signing]
-	format = "gpg"
-	signByDefault = true
+  format = "gpg"
+  signByDefault = true
 
 [status]
-	branch = true
-	short = true
-	showStash = true
-	showUntrackedFiles = "all"
+  branch = true
+  short = true
+  showStash = true
+  showUntrackedFiles = "all"
 
 [tag]
-	gpgsign = true
-	sort = "-taggerdate"
+  gpgsign = true
+  sort = "-taggerdate"
 
 [user]
-	email = "git@quateau.net"
-	name = "Ilya Quateau"
-	signingkey = "97C047EC0FE0A3F150E4CE39D27EA2E824BD4C5E"
+  email = "git@quateau.net"
+  name = "Ilya Quateau"
+  signingkey = "97C047EC0FE0A3F150E4CE39D27EA2E824BD4C5E"

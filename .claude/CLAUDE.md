@@ -41,7 +41,9 @@ wikis to get info while building a project.
   with the task. Give me a quick update in percentage. For example 'Read app.py (lines 5-10) - 70% done
   in total'. This doesn't need to be done every single time you display something, but at logical stages.
 - When in doubt, ask me directly. I don't mind answering more questions if that means you can build it better.
-- By default you can use up to 3 sub agents to split up work. I could specify otherwise.
+- By default you can use up to 2 sub agents to split up work. I could specify otherwise. Evaluate yourself which
+  models these sub agents need to run. Ideally you should always be the most powerfull model and you should use less
+  powerfull models for all sub agents that don't do hard tasks.
 - When writing markdown files, don't put in new lines when the text gets to long. I use editors with automatic
   wrapping features so it's not needed. If it's needed, I will tell you myself.
 
@@ -52,7 +54,7 @@ wikis to get info while building a project.
 ## When building
 - I want to get a short description of what you are building and where you made changes.
 - Make the routine calls yourself. Only ask me when the choice actually changes the outcome.
-- Split up tasks and give them to sub agents. The main agent should always be available to
+- Split up tasks and give them to available sub agents. The main agent should be available to
   give corrections, extra context, ideas,... during the runs.
 
 ## After finishing a build
@@ -63,8 +65,11 @@ wikis to get info while building a project.
 - When working in a git repository:
   - NEVER commit any changes directly using git; I will do this manually.
   - The last line of your chat reply should always be "Suggested commit message: ...". This commit message
-    needs to be very short, to the point and contain what changed; not only in the current session, but
-    everything that changed since the last known commit.
+    needs to be very short (no full sentences), to the point and contain what changed; not only in the
+    current session, but everything that changed since the last known commit.
+  - Before writing that commit message, always recheck the commit history (`git log`, `git status`) instead
+    of relying on what you saw earlier: I may commit in between tasks in the same session, so the last
+    commit can be newer than the one you remember.
 
 # Styling rules
 - NEVER use em-dashes. Only use '-' instead.
