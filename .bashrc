@@ -43,6 +43,7 @@ alias vim='nvim'
 alias ls='ls --color=auto --group-directories-first'
 alias sudoedit='function _sudoedit() { sudo -e "$1"; }; _sudoedit'
 alias cd='z'
+alias claude='claude --effort high'
 
 function jump {
   builtin cd "$@" && l
