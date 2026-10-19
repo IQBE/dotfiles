@@ -52,6 +52,13 @@ wikis to get info while building a project.
 - When writing markdown files, don't put in new lines when the text gets to long. I use editors with automatic
   wrapping features so it's not needed. If it's needed, I will tell you myself.
 
+## Daily notes (Notion)
+- My daily notes live in the Notion "Daily Notes" database (one page per workday, titled "Daily - <date>").
+- When I ask to add something to my daily note for tomorrow, add it to the page content of the current daily note as
+  an item under a "##For tomorrow" list under the "Today’s Notes" section (create the list if it doesn't exist yet).
+  Don't add it to the "Work TODO" database: my automation creates the next note and carries the items marked for
+  tomorrow over by itself.
+
 ## When planning
 - I want clear, human readable plans in english.
 - Provide mermaid diagrams for visuals when valuable (text-rendered in chat, see Styling rules).
