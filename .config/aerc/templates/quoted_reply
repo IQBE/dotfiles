@@ -1,0 +1,13 @@
+X-Mailer: aerc {{version}}
+
+{{ with .Body -}}
+{{.}}
+{{- end }}
+
+{{exec `/home/ilya/.config/aerc/scripts/html_signature.py --plain` ""}}
+On {{dateFormat (.OriginalDate | toLocal) "Mon Jan 2, 2006 at 3:04 PM MST"}}, {{.OriginalFrom | names | join ", "}} wrote:
+{{ if eq .OriginalMIMEType "text/html" -}}
+{{- exec `html` .OriginalText | trimSignature | quote -}}
+{{- else -}}
+{{- trimSignature .OriginalText | quote -}}
+{{- end}}

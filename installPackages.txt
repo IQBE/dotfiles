@@ -8,3 +8,4 @@ fd-find
 gnupg
 zoxide
 git-delta
+aerc

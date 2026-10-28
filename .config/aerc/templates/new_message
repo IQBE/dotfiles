@@ -1,0 +1,7 @@
+X-Mailer: aerc {{version}}
+
+{{ with .Body -}}
+{{.}}
+{{- end }}
+
+{{exec `/home/ilya/.config/aerc/scripts/html_signature.py --plain` ""}}

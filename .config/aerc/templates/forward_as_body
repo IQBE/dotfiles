@@ -1,0 +1,12 @@
+X-Mailer: aerc {{version}}
+
+{{ with .Body -}}
+{{.}}
+{{- end }}
+
+{{exec `/home/ilya/.config/aerc/scripts/html_signature.py --plain` ""}}
+---------- Forwarded message ----------
+From: {{.OriginalFrom | names | join ", "}}
+Date: {{dateFormat .OriginalDate "Mon Jan 2, 2006 at 3:04 PM"}}
+
+{{.OriginalText}}
