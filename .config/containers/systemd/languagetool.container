@@ -1,0 +1,20 @@
+[Unit]
+Description=LanguageTool grammar server (EN/NL/FR)
+
+[Container]
+Image=docker.io/meyay/languagetool:latest
+ContainerName=languagetool
+# Localhost only: the server has no authentication.
+PublishPort=127.0.0.1:8081:8081
+# Keep the language-detection model (~120 MB) between restarts.
+Volume=languagetool-fasttext:/fasttext
+Environment=JAVA_XMS=256m
+Environment=JAVA_XMX=1536m
+PodmanArgs=--memory=2g
+AutoUpdate=registry
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

@@ -9,3 +9,4 @@ gnupg
 zoxide
 git-delta
 aerc
+podman
