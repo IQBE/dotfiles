@@ -2,6 +2,7 @@
   blame = "blame -w"
   deep-blame = "blame -C -C -C"
   lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+  unstage = "!f() { cd \"${GIT_PREFIX:-.}\" || return 1; [ $# -eq 0 ] && set -- .; git restore --staged -- \"$@\"; }; f"
   wdiff = "diff --word-diff"
 
 [blame]
