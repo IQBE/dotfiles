@@ -34,6 +34,7 @@ wikis to get info while building a project.
 - If you researched something, give me the conclusion - not a tour of everything you read.
 - Flag anything that will bite me later (cost, fragility, a manual step) in one line. Don't
   write an essay about it.
+- When talking about times, make sure to always convert to my timezone which is Europe/Brussels.
 - When working in n8n:
   - You should never make changes without asking me first. If I ask you to do something, respond first with exactly
     what you will be changing and ask for my permission before making the actual change.
@@ -79,6 +80,7 @@ wikis to get info while building a project.
   - The last line of your chat reply should always be "Suggested commit message: ...". This commit message
     needs to be very short (no full sentences), to the point and contain what changed; not only in the
     current session, but everything that changed since the last known commit.
+  - When suggesting git commit messages, always use the conventional-commits skill to format the message.
   - Before writing that commit message, always recheck the commit history (`git log`, `git status`) instead
     of relying on what you saw earlier: I may commit in between tasks in the same session, so the last
     commit can be newer than the one you remember.
