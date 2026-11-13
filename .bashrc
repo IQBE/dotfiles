@@ -30,7 +30,6 @@ alias ..='cd ..'
 alias mkdire='function _mkdire() { mkdir -p "$1" && jump "$1"; }; _mkdire'
 alias svim='sudoedit'
 alias py='python'
-alias grep='rg'
 alias claudemd='nvim $HOME/.claude/CLAUDE.md'
 
 # Overrides
@@ -44,6 +43,8 @@ alias ls='ls --color=auto --group-directories-first'
 alias sudoedit='function _sudoedit() { sudo -e "$1"; }; _sudoedit'
 alias cd='z'
 alias claude='claude --effort high'
+alias grep='rg'
+alias tree='tree -F --dirsfirst'
 
 function jump {
   builtin cd "$@" && l

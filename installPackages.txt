@@ -10,3 +10,4 @@ zoxide
 git-delta
 aerc
 podman
+tree
